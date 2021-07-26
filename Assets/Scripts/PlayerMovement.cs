@@ -11,20 +11,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private LayerMask obstacleMask;
 
+    public bool inCutScene = false;
+
     void Start() {
         movePoint.parent = null; // Detach partent
     }
 
     void Update() {
         float movementAmout = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, movementAmout);
 
-        if (Vector3.Distance(transform.position, movePoint.position) <= 0.05f) {
-            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f) {
-                Move(new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0));
-            }
-            else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f) {
-                Move(new Vector3(0, Input.GetAxisRaw("Vertical"), 0));
+        
+        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, movementAmout);
+        
+        if(!inCutScene){
+            if (Vector3.Distance(transform.position, movePoint.position) <= 0.05f) {
+                if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f) {
+                    Move(new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0));
+                }
+                else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f) {
+                    Move(new Vector3(0, Input.GetAxisRaw("Vertical"), 0));
+                }
             }
         }
     }
