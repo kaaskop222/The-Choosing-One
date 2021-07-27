@@ -4942,7 +4942,7 @@ PrefabInstance:
     - target: {fileID: 4949239436431054419, guid: 0943a783e252448468168caa259b6275,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: Fuck off
+      value: asdjfbhasgfvasj gadshfvyasgfas ygadsufasyukyfgads
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0943a783e252448468168caa259b6275, type: 3}
