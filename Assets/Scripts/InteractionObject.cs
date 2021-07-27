@@ -10,23 +10,35 @@ public class InteractionObject : MonoBehaviour
     public bool talks;
     public bool NPC;
 
+    public SpriteRenderer spriteRenderer;
+
+    public Sprite idleUp;
+    public Sprite idleDown;
+    public Sprite idleRight;
+    public Sprite idleLeft;
+
+    private Sprite standardSprite;
 
     public Dialogue dialogue;    
 
+    private void Start() {
+        standardSprite = spriteRenderer.sprite;
+    }
+
     public void FacePlayer(){
-        // if(player.transform.position.x ==  transform.position.x){
-        //     if(player.transform.position.y > transform.position.y){
-        //         Debug.Log("up");
-        //     }else{
-        //         Debug.Log("down");
-        //     }
-        // }else{
-        //     if(player.transform.position.x > transform.position.x){
-        //         Debug.Log("right");
-        //     }else{
-        //         Debug.Log("left");
-        //     }
-        // }
+        if(player.transform.position.x ==  transform.position.x){
+            if(player.transform.position.y > transform.position.y){
+                spriteRenderer.sprite = idleUp;
+            }else{
+                spriteRenderer.sprite = idleDown;
+            }
+        }else{
+            if(player.transform.position.x > transform.position.x){
+                spriteRenderer.sprite = idleRight;
+            }else{
+                spriteRenderer.sprite = idleLeft;
+            }
+        }
     }    
 
     public void Talk(){

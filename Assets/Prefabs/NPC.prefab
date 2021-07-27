@@ -74,9 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 78890e3e1ea3cff4cb6a895b5dfe706b,
-    type: 3}
-  m_Color: {r: 0.032959424, g: 0.9528302, b: 0.16869216, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 25dbfbd01b6dc0c49a048b76d7f7368f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -118,6 +117,11 @@ MonoBehaviour:
   inventory: 0
   talks: 1
   NPC: 1
+  spriteRenderer: {fileID: 223909506417761840}
+  idleUp: {fileID: 21300000, guid: 25dbfbd01b6dc0c49a048b76d7f7368f, type: 3}
+  idleDown: {fileID: 21300004, guid: 25dbfbd01b6dc0c49a048b76d7f7368f, type: 3}
+  idleRight: {fileID: 21300006, guid: 25dbfbd01b6dc0c49a048b76d7f7368f, type: 3}
+  idleLeft: {fileID: 21300002, guid: 25dbfbd01b6dc0c49a048b76d7f7368f, type: 3}
   dialogue:
     name: Bob
     sentences:

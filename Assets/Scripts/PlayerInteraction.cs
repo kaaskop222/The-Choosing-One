@@ -7,20 +7,39 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject interactObject = null;
     public InteractionObject interObjScript = null;
 
+    private Inventory inventory;
+
+    public SpriteRenderer spriteRenderer;
+
+    public Sprite idleUp;
+    public Sprite idleDown;
+    public Sprite idleRight;
+    public Sprite idleLeft;
+
+    void Start() {
+        inventory = this.gameObject.GetComponent<Inventory>();
+    }
+
     void Update(){
         if(Input.GetButtonUp("Submit") && interactObject){
             
             if(interObjScript.inventory){
-                
+                inventory.AddItem(interactObject);
             }
 
+            
             if(interObjScript.talks){
-                interObjScript.Talk();
+                if(FaceObject(interactObject)){
+                    interObjScript.Talk();
+                }
             }
 
             if(interObjScript.NPC){
-                interObjScript.FacePlayer();
+                if(FaceObject(interactObject)){
+                    interObjScript.FacePlayer();
+                }
             }
+            
         }
     }
 
@@ -36,6 +55,48 @@ public class PlayerInteraction : MonoBehaviour
         
     }
 
+    bool FaceObject(GameObject objToFace){
+        if(transform.position.x == objToFace.transform.position.x){
 
+            if(transform.position.y > objToFace.transform.position.y){
+
+                if(spriteRenderer.sprite == idleDown){
+                    return true;
+                }else{
+                    return false;
+                }
+            
+            } else{
+
+                if(spriteRenderer.sprite == idleUp){
+                    return true;
+                }else{
+                    return false;
+                }
+
+            }
+
+        } else if(transform.position.y == objToFace.transform.position.y){
+
+            if(transform.position.x > objToFace.transform.position.x){
+
+                if(spriteRenderer.sprite == idleLeft){
+                    return true;
+                }else{
+                    return false;
+                }
+            } else{
+
+                if(spriteRenderer.sprite == idleRight){
+                    return true;
+                } else{
+                    return false;
+                }
+            }
+
+        }else{
+            return false;
+        }
+    }
 
 }

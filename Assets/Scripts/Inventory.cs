@@ -16,6 +16,7 @@ public class Inventory : MonoBehaviour
                 inventory[i] = item;
                 Debug.Log(item.name);
                 itemAdded = true;
+                item.SetActive(false);
                 break;
             }
         }
