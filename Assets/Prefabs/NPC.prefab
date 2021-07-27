@@ -114,8 +114,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f8b6ff3fa54af40a153278721268e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  inventory: 0
   talks: 1
-  message: 
+  NPC: 1
+  dialogue:
+    name: Bob
+    sentences:
+    - Hey
+    - I'd love to have a lengthy talk but life so shaddap
 --- !u!1 &6406856696495789113
 GameObject:
   m_ObjectHideFlags: 0

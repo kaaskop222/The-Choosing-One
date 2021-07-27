@@ -10,6 +10,10 @@ public class PlayerInteraction : MonoBehaviour
     void Update(){
         if(Input.GetButtonUp("Submit") && interactObject){
             
+            if(interObjScript.inventory){
+                
+            }
+
             if(interObjScript.talks){
                 interObjScript.Talk();
             }

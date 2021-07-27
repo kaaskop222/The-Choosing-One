@@ -13,8 +13,6 @@ public class DialogueManager : MonoBehaviour
 
     private bool isTyping = false;
 
-    private bool stopTyping = true;
-
     public GameObject player;
 
     public Animator animator;

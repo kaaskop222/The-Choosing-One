@@ -11,6 +11,8 @@ public class CameraMovement : MonoBehaviour
     private float height;
     private float width;
 
+    private PlayerMovement playerMovement;
+
     private bool cutSceneOn;
 
     private bool camIsMoving = false;
@@ -28,6 +30,8 @@ public class CameraMovement : MonoBehaviour
         halfWidth = Mathf.Round(camera.aspect * halfHeight);
         height = halfHeight * 2;
         width = halfWidth * 2;
+
+        playerMovement = this.GetComponent<PlayerMovement>();
 
         cutSceneOn = this.GetComponent<PlayerMovement>().inCutScene;
 

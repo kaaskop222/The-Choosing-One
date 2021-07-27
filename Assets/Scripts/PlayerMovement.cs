@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private LayerMask obstacleMask;
 
+    public Animator animator;
+
     public bool inCutScene = false;
     public bool inConversation = false;
 
@@ -28,11 +30,19 @@ public class PlayerMovement : MonoBehaviour
             if (Vector3.Distance(transform.position, movePoint.position) <= 0.05f) {
                 if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f) {
                     Move(new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0));
+                    animator.SetFloat("FaceHor", Input.GetAxisRaw("Horizontal"));
+                    animator.SetFloat("FaceVert", 0);
                 }
                 else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f) {
                     Move(new Vector3(0, Input.GetAxisRaw("Vertical"), 0));
+                    animator.SetFloat("FaceVert", Input.GetAxisRaw("Vertical"));
+                    animator.SetFloat("FaceHor", 0);
                 }
             }
+
+            animator.SetFloat("Horizontal", (movePoint.position.x - transform.position.x));
+            animator.SetFloat("Vertical", (movePoint.position.y - transform.position.y));
+            animator.SetFloat("Speed", Vector3.Distance(movePoint.position, transform.position));
         }
     }
 

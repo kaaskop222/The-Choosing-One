@@ -5,7 +5,8 @@ using UnityEngine;
 public class InteractionObject : MonoBehaviour
 {
     public GameObject player;
-    
+
+    public bool inventory;
     public bool talks;
     public bool NPC;
 
