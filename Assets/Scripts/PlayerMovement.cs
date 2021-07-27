@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private LayerMask obstacleMask;
 
     public bool inCutScene = false;
+    public bool inConversation = false;
 
     void Start() {
         movePoint.parent = null; // Detach partent
@@ -23,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, movementAmout);
         
-        if(!inCutScene){
+        if(!inCutScene && !inConversation){
             if (Vector3.Distance(transform.position, movePoint.position) <= 0.05f) {
                 if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f) {
                     Move(new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0));

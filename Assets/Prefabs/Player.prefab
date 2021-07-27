@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1685566853949699058}
   - component: {fileID: 1685566853949699059}
   - component: {fileID: 1002298039892233179}
+  - component: {fileID: 6733563230895033119}
+  - component: {fileID: 2703147400273722894}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -29,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1685566853949699060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 1685566855667141839}
   m_Father: {fileID: 0}
@@ -125,6 +127,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
+  inCutScene: 0
 --- !u!114 &1002298039892233179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +140,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6448f4b014e7d44d8bea8ea7b37e5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camSpeed: 5
+  camSpeed: 10
+--- !u!114 &6733563230895033119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685566853949699060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfd3e47e339e31429795b188e6d7b6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactObject: {fileID: 0}
+  interObjScript: {fileID: 0}
+--- !u!58 &2703147400273722894
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685566853949699060}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &1685566855667141840
 GameObject:
   m_ObjectHideFlags: 0
