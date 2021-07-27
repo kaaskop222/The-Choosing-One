@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public GameObject interactObject;
-    public InteractionObject interObjScript;
+    public GameObject interactObject = null;
+    public InteractionObject interObjScript = null;
 
     void Update(){
         if(Input.GetButtonUp("Submit") && interactObject){

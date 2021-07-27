@@ -13,6 +13,8 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject player;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void StartConversation(Dialogue dialogue){
+        animator.SetBool("isOpen", true);
 
         nameText.text = dialogue.name;
 
@@ -49,5 +52,7 @@ public class DialogueManager : MonoBehaviour
     
     void EndConversation(){
         player.GetComponent<PlayerMovement>().inConversation = false;
+        animator.SetBool("isOpen", false);
+        
     }
 }
