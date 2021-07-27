@@ -11,6 +11,10 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
+    private bool isTyping = false;
+
+    private bool stopTyping = true;
+
     public GameObject player;
 
     public Animator animator;
@@ -38,28 +42,35 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void DisplayNextSentence(){
-        
-        if(sentences.Count == 0){
-            EndConversation();
-            return;
-        }
+        if(!isTyping){
 
-        string sentence = sentences.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+            if(sentences.Count == 0){
+                EndConversation();
+                return;
+            }
+        
+            string sentence = sentences.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
+        }
     }
 
     IEnumerator TypeSentence(string sentence){
+        isTyping = true;
         dialogueText.text = "";
         foreach(char letter in sentence.ToCharArray()){
             dialogueText.text += letter;
             yield return new WaitForSeconds(0.025f);
         }
+        dialogueText.text = sentence;
+        isTyping = false;
     }
     
     void EndConversation(){
-        player.GetComponent<PlayerMovement>().inConversation = false;
-        animator.SetBool("isOpen", false);
+
+        
+            player.GetComponent<PlayerMovement>().inConversation = false;
+            animator.SetBool("isOpen", false);
         
     }
 }
